@@ -1,0 +1,111 @@
+---
+title: Installation
+description: Install ad-injector and its optional framework integrations.
+---
+
+## Requirements
+
+ad-injector requires **Python 3.12 or later**. No external dependencies are needed for the core package.
+
+## Install options
+
+Choose the install command that matches how you plan to use ad-injector.
+
+<Tabs>
+  <Tab title="uv">
+    <CodeGroup>
+
+    ```bash core only
+    uv add ad-injector
+    ```
+
+    ```bash with FastAPI
+    uv add ad-injector[fastapi]
+    ```
+
+    ```bash with Flask
+    uv add ad-injector[flask]
+    ```
+
+    ```bash all extras
+    uv add ad-injector[all]
+    ```
+
+    </CodeGroup>
+  </Tab>
+  <Tab title="pip">
+    <CodeGroup>
+
+    ```bash core only
+    pip install ad-injector
+    ```
+
+    ```bash with FastAPI
+    pip install ad-injector[fastapi]
+    ```
+
+    ```bash with Flask
+    pip install ad-injector[flask]
+    ```
+
+    ```bash all extras
+    pip install ad-injector[all]
+    ```
+
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
+<Tip>
+`uv` is recommended for faster installs and reliable dependency resolution. Install it with `curl -LsSf https://astral.sh/uv/install.sh | sh`.
+</Tip>
+
+## What each extra includes
+
+<CardGroup cols={3}>
+  <Card title="core" icon="box">
+    The `AdInjector` and `Instruction` classes. No third-party dependencies.
+  </Card>
+  <Card title="fastapi" icon="bolt">
+    Adds `fastapi>=0.100.0` and `starlette>=0.27.0` for the ASGI middleware integration.
+  </Card>
+  <Card title="flask" icon="flask">
+    Adds `flask>=2.0.0` for the Flask `after_request` extension.
+  </Card>
+</CardGroup>
+
+Installing `ad-injector[all]` includes both the `fastapi` and `flask` extras.
+
+## Verify the installation
+
+Confirm everything installed correctly by importing the main classes:
+
+```python
+from ad_injector import AdInjector, Instruction
+
+print(AdInjector())
+# AdInjector(instructions=[], injection_rate=0.3, disguise='agent_directive', ...)
+```
+
+If no `ImportError` is raised, you're ready to go.
+
+<Note>
+If you installed a framework extra, verify the framework import too — for example, `import fastapi` or `import flask`.
+</Note>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Quickstart" icon="rocket" href="/quickstart">
+    Create your first injector and inject into a response.
+  </Card>
+  <Card title="FastAPI integration" icon="bolt" href="/integration/fastapi">
+    Add automatic injection middleware to a FastAPI app.
+  </Card>
+  <Card title="Flask integration" icon="flask" href="/integration/flask">
+    Use the Flask extension for seamless injection.
+  </Card>
+  <Card title="Decorator" icon="at" href="/integration/decorator">
+    Target specific endpoints with `@inject_ads`.
+  </Card>
+</CardGroup>
