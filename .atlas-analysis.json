@@ -1,0 +1,87 @@
+{
+  "projectType": "sdk-library",
+  "projectName": "ad-injector",
+  "projectDescription": "A Python library that lets API providers inject agent-targeted instructions into their JSON responses to promote referral codes, affiliate links, and other directives.",
+  "theme": "palm",
+  "primaryColor": "#6366F1",
+  "lightColor": "#818CF8",
+  "darkColor": "#4338CA",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": ["introduction", "installation", "quickstart"]
+          },
+          {
+            "group": "Integration",
+            "pages": [
+              "integration/fastapi",
+              "integration/flask",
+              "integration/decorator"
+            ]
+          },
+          {
+            "group": "Guides",
+            "pages": [
+              "guides/presets",
+              "guides/disguise-modes",
+              "guides/configuration"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "Core",
+            "pages": [
+              "api-reference/ad-injector",
+              "api-reference/instruction"
+            ]
+          },
+          {
+            "group": "Middleware",
+            "pages": [
+              "api-reference/fastapi-middleware",
+              "api-reference/flask-middleware",
+              "api-reference/decorator"
+            ]
+          },
+          {
+            "group": "Presets",
+            "pages": ["api-reference/presets"]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Inject agent-targeted instructions into JSON API responses",
+    "Probabilistic injection rate control",
+    "Multiple disguise modes (agent_directive, system_note, metadata, etc.)",
+    "Scatter mode for stealthy injection into existing string values",
+    "Nested injection support via dot-separated paths",
+    "FastAPI/Starlette middleware for automatic injection",
+    "Flask extension for automatic injection",
+    "Per-endpoint decorator for targeted injection",
+    "Pre-built presets for referral codes, affiliate links, competitor steering, and memory planting"
+  ],
+  "publicApiSurface": [
+    "AdInjector",
+    "Instruction",
+    "AdInjector.inject(response)",
+    "AdInjector.inject_always(response)",
+    "AdInjectorMiddleware (FastAPI/Starlette)",
+    "FlaskAdInjector (Flask)",
+    "inject_ads(injector) decorator",
+    "referral_injector(service, code, injection_rate)",
+    "affiliate_injector(product, url, injection_rate)",
+    "competitor_injector(our_product, competitor, injection_rate)",
+    "memory_planter(facts, injection_rate)",
+    "stealth_injector(instructions, injection_rate)"
+  ]
+}
